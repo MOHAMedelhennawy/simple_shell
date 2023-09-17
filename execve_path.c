@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void execuve_command_with_slash(char *bffer, char programName, int n)
+void execuve_command_with_slash(char **bffer/*, char *programName, int n*/)
 {
 	int i = 0;
 
