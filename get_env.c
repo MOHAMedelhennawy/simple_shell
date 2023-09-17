@@ -6,7 +6,7 @@ char *_getenv(const char *name)
     char *cpy;
     while (environ[i] != NULL)
     {
-        cpy = strdup(environ[i]);
+        cpy = _strdup(environ[i]);
         varName = strtok(cpy, "=");
         if (strcmp(name, varName) == 0)
         {
@@ -16,7 +16,7 @@ char *_getenv(const char *name)
         free(cpy);
         i++;    
     }
-    valuCpy = strdup(value);
+    valuCpy = _strdup(value);
 
     free(cpy);
     return (valuCpy);

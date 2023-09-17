@@ -11,7 +11,7 @@ d_node *build_linkedList(void)
     while (dir != NULL)
     {     
         new = malloc(sizeof(struct dirNode));
-        new->directory = strdup(dir);
+        new->directory = _strdup(dir);
         new->nextDir = NULL;
 
         if (head == NULL)
