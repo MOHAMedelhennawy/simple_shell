@@ -1,4 +1,5 @@
 #include "shell.h"
+
 d_node *build_linkedList(void)
 {
     char *allDirs, *dir;
@@ -28,4 +29,17 @@ d_node *build_linkedList(void)
     }
     free(allDirs);
     return (head);
+}
+
+
+void free_list(d_node *head)
+{
+    d_node *ptr = head, *next_node;
+    while (ptr != NULL)
+    {
+        next_node = ptr->nextDir;
+        free(ptr->directory);
+        free(ptr);
+        ptr = next_node;
+    }
 }
