@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void execuve_command_with_slash(char **bffer/*, char *programName, int n*/)
+void execuve_command_with_slash(char **bffer, char *programName, int n)
 {
 	int i = 0;
 
@@ -8,8 +8,9 @@ void execuve_command_with_slash(char **bffer/*, char *programName, int n*/)
 		{
 			while (bffer[i++] != NULL)
 				bffer[i] = strtok(NULL, " ");
-			execve(bffer[0], bffer, NULL);
-				/*error_message(programName, bffer[0], n);*/ 
+			if (execve(bffer[0], bffer, NULL) == -1)
+					error_message_permission_denied(programName, *bffer, n); 
+
 			free(bffer[0]);
 			exit(EXIT_SUCCESS);
 			

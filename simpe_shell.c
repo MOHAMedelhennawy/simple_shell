@@ -16,9 +16,10 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			getline_error(readBytes, &buff[0]);
 
 		if (strcmp(buff[0], "\n") == 0)
-				free(buff[0]);
-	
+				continue;			
+
 		buff[0][readBytes - 1] = '\0';
+
 		if (strcmp(buff[0], "env") == 0)
 			env_function();
 
@@ -28,11 +29,11 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		sss = strlen(buff[0]) + 1;
 		pathBuf = malloc(sizeof(char) * sss); /* Don't forget to FREEEEE pathBuf ((DONE))  */
 	
-		strcpy(pathBuf, buff[0]);
-		
+		_strcpy(pathBuf, buff[0]);
+
 		buff[0] = strtok(buff[0], " "); 
 		if (stat(buff[0], &st) == 0 || !buff[0])
-			execuve_command_with_slash(&buff[0]/*, argv[0], num*/);
+			execuve_command_with_slash(&buff[0], argv[0], num);
 
 		else if (strcmp(buff[0], "env") && search_in_path(pathBuf) == -1)
 				error_message(argv[0], buff[0], num);	
