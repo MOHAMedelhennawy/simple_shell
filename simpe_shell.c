@@ -16,7 +16,10 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			getline_error(readBytes, &buff[0]);
 
 		if (strcmp(buff[0], "\n") == 0)
-				continue;			
+		{
+			num++;
+			continue;
+		}
 
 		buff[0][readBytes - 1] = '\0';
 
