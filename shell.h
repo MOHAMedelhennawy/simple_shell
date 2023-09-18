@@ -16,19 +16,21 @@ typedef struct dirNode
     struct dirNode *nextDir;
 }d_node;
 
-char *_getenv(const char *name);
+char *_getenv(char *name);
 d_node *build_linkedList(void);
 int search_in_path(char *buf);
 void free_list(d_node *head);
 
-void getline_error(int bytes, char **buff);
+void getline_error(int bytes, char **buff, size_t *ex);
 void env_function();
-void execuve_command_with_slash(char **bffer, char *programName, int n);
+int execuve_command_with_slash(char **bffer, char *programName, int n, char **pathbuf, char **exitbuf);
 
 void error_message(char *argv, char *buff, int num);
 void error_message_permission_denied(char *argv, char *buff, int num);
 
 void print_number(int n);
+int exit_with_arguments(char *bufff, char **oldBuf);
+int _atoi(char *s);
 
 void _strcpy(char *dest, char *src);
 char *_strdup(char *str);

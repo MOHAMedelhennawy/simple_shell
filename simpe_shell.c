@@ -2,8 +2,8 @@
 
 int main(int __attribute__((unused)) argc, char *argv[])
 {
-	size_t len = 0, num = 1, sss;
-	char *buff[] = {NULL}, *pathBuf;
+	size_t len = 0, num = 1, sss, ex = EXIT_SUCCESS;
+	char *buff[] = {NULL}, *pathBuf, *exitBuf;
 	ssize_t readBytes;
   	struct stat st;
 
@@ -13,7 +13,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			write(STDOUT_FILENO, "#cisfun$ ", 9);
 
 		readBytes = getline(&buff[0], &len, stdin);
-			getline_error(readBytes, &buff[0]);
+			getline_error(readBytes, &buff[0], &ex);
 
 		if (_strcmp(buff[0], "\n") == 0)
 		{
@@ -27,19 +27,25 @@ int main(int __attribute__((unused)) argc, char *argv[])
 			env_function();
 
 		if (_strcmp(buff[0], "exit") == 0) /** asfsadf*/
-			free(buff[0]), exit(EXIT_SUCCESS);
+			free(buff[0]), exit(ex);
 		
-		sss = strlen(buff[0]) + 1;
-		pathBuf = malloc(sizeof(char) * sss); /* Don't forget to FREEEEE pathBuf ((DONE))  */
+		exitBuf = malloc(sizeof(char) * (_strlen(buff[0]) + 1));
+		_strcpy(exitBuf, buff[0]);
+		exit_with_arguments(exitBuf, &buff[0]);
+
+
+		
 	
+		pathBuf = malloc(sizeof(char) * (strlen(buff[0]) + 1)); /* Don't forget to FREEEEE pathBuf ((DONE))  */
 		_strcpy(pathBuf, buff[0]);
 
 		buff[0] = strtok(buff[0], " "); 
 		if (stat(buff[0], &st) == 0 || !buff[0])
-			execuve_command_with_slash(&buff[0], argv[0], num);
+			ex = execuve_command_with_slash(&buff[0], argv[0], num, &pathBuf, &exitBuf);
 
-		else if (_strcmp(buff[0], "env") && search_in_path(pathBuf) == -1)
-				error_message(argv[0], buff[0], num);	
+		else if (_strcmp(buff[0], "env") && (ex = search_in_path(pathBuf)) == 127)
+				error_message(argv[0], buff[0], num);
+
  		free(pathBuf);
 		num++;
 	}

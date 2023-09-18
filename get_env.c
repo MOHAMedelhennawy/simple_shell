@@ -1,5 +1,6 @@
 #include "shell.h"
-char *_getenv(const char *name)
+
+char *_getenv(char *name)
 {
     int i = 0;
     char *varName, *value, *valuCpy;

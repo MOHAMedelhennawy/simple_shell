@@ -23,11 +23,11 @@ int search_in_path(char *buf)
     if (check_node_for_execuve(&head, buffer) == 0)
     {
         free_list(head);
-        return (-1);
+        return (127);
     }
     free_list(head);
 
-    return (1);
+    return (0);
 }
 
 int check_node_for_execuve(d_node **head, char **buffer)
