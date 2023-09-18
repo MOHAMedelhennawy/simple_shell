@@ -15,7 +15,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		readBytes = getline(&buff[0], &len, stdin);
 			getline_error(readBytes, &buff[0]);
 
-		if (strcmp(buff[0], "\n") == 0)
+		if (_strcmp(buff[0], "\n") == 0)
 		{
 			num++;
 			continue;
@@ -23,10 +23,10 @@ int main(int __attribute__((unused)) argc, char *argv[])
 
 		buff[0][readBytes - 1] = '\0';
 
-		if (strcmp(buff[0], "env") == 0)
+		if (_strcmp(buff[0], "env") == 0)
 			env_function();
 
-		if (strcmp(buff[0], "exit") == 0) /** asfsadf*/
+		if (_strcmp(buff[0], "exit") == 0) /** asfsadf*/
 			free(buff[0]), exit(EXIT_SUCCESS);
 		
 		sss = strlen(buff[0]) + 1;
@@ -38,7 +38,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 		if (stat(buff[0], &st) == 0 || !buff[0])
 			execuve_command_with_slash(&buff[0], argv[0], num);
 
-		else if (strcmp(buff[0], "env") && search_in_path(pathBuf) == -1)
+		else if (_strcmp(buff[0], "env") && search_in_path(pathBuf) == -1)
 				error_message(argv[0], buff[0], num);	
  		free(pathBuf);
 		num++;

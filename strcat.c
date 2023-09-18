@@ -7,7 +7,7 @@
  *
  * Return: pointer to the concatenated string.
  */
-void concatenate_string(char* stringPart1, char* stringPart2)
+void _strcat(char* stringPart1, char* stringPart2)
 {
 	int lenStr1, i = 0;
 
