@@ -33,7 +33,8 @@ void print_number(int n);
 void _strcpy(char *dest, char *src);
 char *_strdup(char *str);
 int _strlen(char *s);
-void concatenate_string(char* s, char* s1);
+void _strcat(char* s, char* s1);
+int _strcmp(char *strin1, char *strin2);
 int check_node_for_execuve(d_node **head, char **buffer);
 
 #endif
