@@ -2,33 +2,32 @@
 
 d_node *build_linkedList(void)
 {
-    char *allDirs, *dir;
-    d_node *head = NULL, *pttr = NULL, *new;
+	char *allDirs, *dir;
+	d_node *head = NULL, *pttr = NULL, *new;
 
-    allDirs = _getenv("PATH");
-    
-    dir = strtok(allDirs, ":");
-    while (dir != NULL)
-    {     
-        new = malloc(sizeof(struct dirNode));
-        new->directory = _strdup(dir);
-        new->nextDir = NULL;
+	allDirs = _getenv("PATH");
 
-        if (head == NULL)
-            head = new;
-        else
-        {
-            pttr = head;
+	dir = strtok(allDirs, ":");
+	while (dir != NULL)
+	{
+		new = malloc(sizeof(struct dirNode));
+		new->directory = _strdup(dir);
+		new->nextDir = NULL;
 
-            while (pttr->nextDir != NULL)
-                pttr = pttr->nextDir;
-        
-            pttr->nextDir = new;
-        }
-        dir = strtok(NULL, ":");
-    }
-    free(allDirs);
-    return (head);
+		if (head == NULL)
+			head = new;
+		else
+		{
+			pttr = head;
+
+			while (pttr->nextDir != NULL)
+				pttr = pttr->nextDir;
+			pttr->nextDir = new;
+		}
+		dir = strtok(NULL, ":");
+	}
+	free(allDirs);
+	return (head);
 }
 
 
@@ -38,8 +37,7 @@ void free_list(d_node *head)
     while (ptr != NULL)
     {
         next_node = ptr->nextDir;
-        free(ptr->directory);
-        free(ptr);
+        free(ptr->directory), free(ptr);
         ptr = next_node;
     }
 }
