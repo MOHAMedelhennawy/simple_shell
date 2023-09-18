@@ -40,8 +40,8 @@ int check_node_for_execuve(d_node **head, char **buffer)
         str = malloc(sizeof(char) * (_strlen((*head)->directory) + _strlen(buffer[0]) + 2));
 
         _strcpy(str, (*head)->directory); /* str = usr/bin/ls   */
-        concatenate_string(str, "/");
-        concatenate_string(str, buffer[0]);
+        _strcat(str, "/");
+        _strcat(str, buffer[0]);
     
         if (access(str, F_OK) == 0)
         {

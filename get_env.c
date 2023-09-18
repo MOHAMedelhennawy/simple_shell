@@ -8,7 +8,7 @@ char *_getenv(const char *name)
     {
         cpy = _strdup(environ[i]);
         varName = strtok(cpy, "=");
-        if (strcmp(name, varName) == 0)
+        if (_strcmp(name, varName) == 0)
         {
             value = strtok(NULL, "\0");
             break;
