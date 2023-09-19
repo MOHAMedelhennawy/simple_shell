@@ -10,7 +10,7 @@
 int search_in_path(char *buf)
 {
 	d_node *head = build_linkedList();
-	char *str, **buffer;
+	char **buffer;
 	int i = 0, args = 1, j = 0;
 
 	/*to count number of words*/

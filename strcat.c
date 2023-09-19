@@ -12,8 +12,8 @@ void _strcat(char *stringPart1, char *stringPart2)
 	int lenStr1, i = 0;
 
 	lenStr1 = _strlen(stringPart1);				/*count number of digit*/
-
-	while (stringPart2[i] != '\0')		/*check if curent char is equal to null terminated string*/
+	/*check if curent char is equal to null terminated string*/
+	while (stringPart2[i] != '\0')
 	{									/*if equal to null terminated break*/
 		stringPart1[lenStr1 + i] = stringPart2[i];	/*put each char of string2*/
 		i++;										/*at the end of string1*/
