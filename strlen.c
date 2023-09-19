@@ -1,19 +1,15 @@
 #include "shell.h"
 /**
- * _strlen - Entery point
- *
- * @s: char parameter.
- *
- * Description: returns the length of a string.
- *
- * Return: Always 0.
+ * _strlen - to count number of digit of given string
+ * @string: origin string.
+ * Return: Number of digit.
  */
 int _strlen(char *string)
 {
 	int itrat = 0;
 
 	while (string[itrat] != '\0')
-		itrat++;
+		itrat++;					/*count until reach to end of string*/
 
-	return (itrat);
+	return (itrat);					/*return number of digit*/
 }

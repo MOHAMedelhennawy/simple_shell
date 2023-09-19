@@ -21,8 +21,8 @@ int search_in_path(char *buf);
 void free_list(d_node *head);
 
 void getline_error(int bytes, char **buff, size_t *ex);
-void env_function();
-int execuve_command_with_slash(char **bffer, char *programName, int n, char **pathbuf, char **exitbuf);
+void env_function(void);
+int execuve_command_with_slash(char **bffer, char *programName, int n, char **pathbuf);
 
 void error_message(char *argv, char *buff, int num);
 void error_message_permission_denied(char *argv, char *buff, int num);
