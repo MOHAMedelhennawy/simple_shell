@@ -2,7 +2,6 @@
 #define SHELL_H
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <wait.h>
@@ -38,5 +37,6 @@ int _strlen(char *s);
 void _strcat(char* s, char* s1);
 int _strcmp(char *strin1, char *strin2);
 int check_node_for_execuve(d_node **head, char **buffer);
+char *_strtok(char *str, char *delim);
 
 #endif

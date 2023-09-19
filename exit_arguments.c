@@ -5,9 +5,9 @@ int exit_with_arguments(char *bufff, char **oldBuf)
     int exit_status;
     char *word1, *word2;
 
-    word1 = strtok(bufff, " ");
+    word1 = _strtok(bufff, " ");
     if (_strcmp(word1, "exit") == 0)
-        word2 = strtok(NULL, " ");
+        word2 = _strtok(NULL, " ");
     else
     {
         free(bufff);

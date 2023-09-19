@@ -15,10 +15,10 @@ int search_in_path(char *buf)
     buffer = malloc(sizeof(char *) * (args + 1)); /**/
 
 
-    buffer[0] = strtok(buf, " "); /* "ls"   */
+    buffer[0] = _strtok(buf, " "); /* "ls"   */
 
     while (buffer[j++] != NULL)
-        buffer[j] = strtok(NULL, " "); /*, "-l", "-h"*/
+        buffer[j] = _strtok(NULL, " "); /*, "-l", "-h"*/
 
     if (check_node_for_execuve(&head, buffer) == 0)
     {

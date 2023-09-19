@@ -7,7 +7,7 @@ d_node *build_linkedList(void)
 
 	allDirs = _getenv("PATH");
 
-	dir = strtok(allDirs, ":");
+	dir = _strtok(allDirs, ":");
 	while (dir != NULL)
 	{
 		new = malloc(sizeof(struct dirNode));
@@ -24,7 +24,7 @@ d_node *build_linkedList(void)
 				pttr = pttr->nextDir;
 			pttr->nextDir = new;
 		}
-		dir = strtok(NULL, ":");
+		dir = _strtok(NULL, ":");
 	}
 	free(allDirs);
 	return (head);

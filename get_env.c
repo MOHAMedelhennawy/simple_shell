@@ -8,10 +8,10 @@ char *_getenv(char *name)
     while (environ[i] != NULL)
     {
         cpy = _strdup(environ[i]);
-        varName = strtok(cpy, "=");
+        varName = _strtok(cpy, "=");
         if (_strcmp(name, varName) == 0)
         {
-            value = strtok(NULL, "\0");
+            value = _strtok(NULL, "\0");
             break;
         }
         free(cpy);

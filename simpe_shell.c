@@ -36,10 +36,10 @@ int main(int __attribute__((unused)) argc, char *argv[])
 
 		
 	
-		pathBuf = malloc(sizeof(char) * (strlen(buff[0]) + 1)); /* Don't forget to FREEEEE pathBuf ((DONE))  */
+		pathBuf = malloc(sizeof(char) * (_strlen(buff[0]) + 1)); /* Don't forget to FREEEEE pathBuf ((DONE))  */
 		_strcpy(pathBuf, buff[0]);
 
-		buff[0] = strtok(buff[0], " "); 
+		buff[0] = _strtok(buff[0], " "); 
 		if (stat(buff[0], &st) == 0 || !buff[0])
 			ex = execuve_command_with_slash(&buff[0], argv[0], num, &pathBuf, &exitBuf);
 

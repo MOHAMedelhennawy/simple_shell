@@ -2,7 +2,7 @@
 
 char *_strdup(char *string)
 {
-	int i, length_of_string = strlen(string) + 1;
+	int i, length_of_string = _strlen(string) + 1;
 	char *newString;
 
 	if (string == NULL)
