@@ -11,7 +11,7 @@
  *
  * Return: 1 in success and 0 in failer.
  */
-int exit_with_arguments(char *bufff, char **oldBuf)
+int exit_with_arguments(char *bufff, char **oldBuf, char *programName)
 {
 	int exit_status;
 	char *word1, *word2;
@@ -25,8 +25,11 @@ int exit_with_arguments(char *bufff, char **oldBuf)
 		return (1); /* Free the bufff and return */
 	}
 	exit_status = _atoi(word2); /* convert the exit status from stirng to int */
-	if (exit_status == -1 || exit_status == 0)
-		return (1);
+	if (exit_status < 0)
+	{
+		perror("ds");
+		return (0);
+	}
 	free(bufff), free(*oldBuf);
 	exit(exit_status);
 	return (0);
@@ -50,7 +53,7 @@ int _atoi(char *stringNum)
 
 	do {
 		if (stringNum[i] == '-') /* Check for first char in string */
-			return (-1); /* make the sign in negative */
+			pos_neg = -1; /* make the sign in negative */
 
 		else if (stringNum[i] >= '0' && stringNum[i] <= '9')
 			intNum = intNum * 10 + (stringNum[i] - '0'); /* Convert to integar */
@@ -61,3 +64,13 @@ int _atoi(char *stringNum)
 
 	return (intNum * pos_neg); /* Number * (- or +) */
 }
+
+// void exit_neg()
+// { /*sh: 1: exit: Illegal number: -98*/
+// 	write(STDERR_FILENO, Prog, _strlen(Prog)); /*//  ./aout*/
+// 	write(STDERR_FILENO, ": ", 2);
+// 	print_number(errNum); /* Print line number */
+// 	write(STDERR_FILENO, ": ", 2);
+// 	write(STDERR_FILENO, buff, _strlen(buff));
+// 	write(STDERR_FILENO, ": not found\n", 12);
+// }
