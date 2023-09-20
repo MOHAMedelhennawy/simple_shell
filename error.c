@@ -16,6 +16,7 @@ void getline_error(int bytes, char **buff, size_t *ex)
 	{
 		if (isatty(STDIN_FILENO) != 0) /* Check for interactive move*/
 			write(STDOUT_FILENO, "\n", 1);
+		free(buff[0]);
 		exit(*ex);
 	}
 }

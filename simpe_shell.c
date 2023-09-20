@@ -40,7 +40,7 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 		exit_with_arguments(buff);	/*to execute the commands*/
 
 		if (access(buff[0], F_OK) == 0)
-			ex = execuve_command_with_slash(buff, argv[0], num);
+			ex = execuve_command_with_slash(buff, argv[0]);
 		else if (_strcmp(buff[0], "env") && search_in_path(buff) == 127)
 			error_message(argv[0], buff[0], num), ex = 127;
 		else

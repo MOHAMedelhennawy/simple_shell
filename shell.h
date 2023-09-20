@@ -26,7 +26,7 @@ typedef struct dirNode
 
 void getline_error(int bytes, char **buff, size_t *ex);
 void env_function(void);
-int execuve_command_with_slash(char **bffer, char *programName, int n);
+int execuve_command_with_slash(char **bffer, char *programName);
 
 char *_getenv(char *name);
 d_node *build_linkedList(void);

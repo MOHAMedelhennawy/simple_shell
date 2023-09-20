@@ -12,7 +12,7 @@
  *
  * Return: 0 always success.
  */
-int execuve_command_with_slash(char **bffer, char *programName, int n)
+int execuve_command_with_slash(char **bffer, char *programName)
 {
 	int status;  /*"ls", "-l"*/
 
