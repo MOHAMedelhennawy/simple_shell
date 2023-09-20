@@ -22,8 +22,7 @@ char **pathbuf)
 	{
 		while (bffer[itr++] != NULL) /* splits the command to strings */
 			bffer[itr] = _strtok(NULL, " ");
-
-		if (execve(bffer[0], bffer, NULL) == -1)
+		if (execve(bffer[0], bffer, environ) == -1)
 			error_message_permission_denied(programName, *bffer, n);
 
 		free(bffer[0]), free(*pathbuf);
