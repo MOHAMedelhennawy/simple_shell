@@ -7,11 +7,28 @@
  *
  * Return: 0 if path is exist, 127 if not.
  */
-int search_in_path(char **buf)
+int search_in_path(char *buf)
 {
 	d_node *head = build_linkedList();
+	char **buffer;
+	int i = 0, args = 1, j = 0;
 
-	if (check_node_for_execuve(&head, buf) == 0)
+	/*to count number of words*/
+	while (buf[i] != '\0')
+	{
+		if (buf[i] == ' ' && buf[i + 1] != '\0')
+			args++;
+		i++;
+	}
+	buffer = malloc(sizeof(char *) * (args + 1));	/*store in heap*/
+
+	/*litting a string by some delimiter*/
+	buffer[0] = _strtok(buf, " ");
+	while (buffer[j++] != NULL)
+		buffer[j] = _strtok(NULL, " ");
+
+	/*check if path is exit*/
+	if (check_node_for_execuve(&head, buffer) == 0)
 	{
 		free_list(head);
 		return (127);
@@ -49,7 +66,6 @@ int check_node_for_execuve(d_node **head, char **buffer)
 			{
 				buffer[0] = str;
 				execve(buffer[0], buffer, NULL);
-				free(str);
 				exit(EXIT_SUCCESS);
 			}
 			wait(NULL), flag = 1;
@@ -63,11 +79,11 @@ int check_node_for_execuve(d_node **head, char **buffer)
 		else
 		{
 			d_node *temp = *head;
-			free(temp->directory);
 			*head = (*head)->nextDir;
+			free(temp->directory);
 			free(temp), free(str);
 		}
 	}
-	free(str);
+	free(str), free(buffer);
 	return (flag);
 }
