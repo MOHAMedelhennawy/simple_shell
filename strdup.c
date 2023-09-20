@@ -12,7 +12,7 @@ char *_strdup(char *string)
 	int i, length_of_string = _strlen(string) + 1;
 	char *newString;
 
-	if (string == NULL)				/*return NULL if no string there*/
+	if (string == NULL)				 /*return NULL if no string there*/
 		return (NULL);
 
 	newString = malloc(sizeof(char) * length_of_string);	/*store in heap*/
