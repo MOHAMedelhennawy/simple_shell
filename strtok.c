@@ -23,7 +23,7 @@ char *_strtok(char *strin, char *delim)
 
 	/*to Re-point to the next word*/
 	word = each_char;
-	while (*each_char != '\0')			/*if reach to end of string break*/
+	while (*each_char != '\0')			 /*if reach to end of string break*/
 	{
 		if (*each_char == *delim)
 		{
