@@ -14,5 +14,5 @@ void _strcpy(char *firstString, char *secondString)
 		length++; /*count number of digit of origin string */
 
 	for (i = 0; i <= length; i++)
-		firstString[i] = secondString[i];	/*put second string in first one*/
+		firstString[i] = secondString[i];	 /*put second string in first one*/
 }
