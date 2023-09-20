@@ -13,7 +13,7 @@
  *
  * Return: 0 always success.
  */
-int execuve_command_with_slash(char **bffer, char *programName, int n,
+int execuve_command_with_slash(char **bffer, char *programName,
 char **pathbuf)
 {
 	int itr = 0;
@@ -24,7 +24,7 @@ char **pathbuf)
 			bffer[itr] = _strtok(NULL, " ");
 
 		if (execve(bffer[0], bffer, NULL) == -1)
-			error_message_permission_denied(programName, *bffer, n);
+			perror(programName);
 
 		free(bffer[0]), free(*pathbuf);
 		exit(EXIT_SUCCESS); /* Exit with 0 status */
