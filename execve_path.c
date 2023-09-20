@@ -29,5 +29,5 @@ char **pathbuf)
 		exit(EXIT_SUCCESS); /* Exit with 0 status */
 	}
 	wait(NULL); /* Make the parent process wait for child process terminate */
-	return (EXIT_SUCCESS);
+	return (2);
 }
