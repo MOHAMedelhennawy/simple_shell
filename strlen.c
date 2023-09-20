@@ -11,5 +11,5 @@ int _strlen(char *string)
 	while (string[itrat] != '\0')
 		itrat++;				  /*count until reach to end of string*/
 
-	return (itrat);				  /*return number of digit*/
+	return (itrat);				   /*return number of digit*/
 }
