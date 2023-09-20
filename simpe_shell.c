@@ -7,8 +7,8 @@
  */
 int main(int __attribute__ ((unused)) argc, char *argv[])
 {
-	size_t len = 0, num = 1, ex = EXIT_SUCCESS, k = 0;
-	char *buff[] = {NULL}, *pathBuf, *exitBuf;
+	size_t len = 0, num = 1, ex = EXIT_SUCCESS, j = 0, spaceCount = 0; 
+	char *buff[] = {NULL}, *pathBuf, *exitBuf, *strr;
 	ssize_t readBytes;
 
 	while ('T')
@@ -27,9 +27,8 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 		}
 
 		buff[0][readBytes - 1] = '\0';
-		int j = 0;
-		char *strr = malloc(sizeof(char) * (_strlen(buff[0]) + 1));
-		int spaceCount = 0; // Variable to track consecutive spaces
+		strr = malloc(sizeof(char) * (_strlen(buff[0]) + 1));
+		j = 0;
 
 		while (*buff[0] != '\0')
 		{
@@ -46,7 +45,7 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 			else
 			{
 				strr[j++] = *buff[0];
-				spaceCount = 0; // Reset space count
+				spaceCount = 0; 
 				buff[0]++;
 			}
 		}
@@ -66,12 +65,6 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 
 		pathBuf = malloc(sizeof(char) * (_strlen(buff[0]) + 1));
 		_strcpy(pathBuf, buff[0]);
-		// while (buff[0][k] != '\0')
-		// {
-		// 	if (buff[0][k++] ==  ' ')
-		// 		puts("DFKLJSFJSDF");
-		// 	continue;			
-		// }
 
 
 		buff[0] = _strtok(buff[0], " ");
