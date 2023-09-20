@@ -16,7 +16,7 @@
 int execuve_command_with_slash(char **bffer, char *programName, int n,
 char **pathbuf)
 {
-	int itr = 0;
+	int itr = 0, status;
 
 	if (fork() == 0) /* Check for child process */
 	{
@@ -28,6 +28,6 @@ char **pathbuf)
 		free(bffer[0]), free(*pathbuf);
 		exit(EXIT_SUCCESS); /* Exit with 0 status */
 	}
-	wait(NULL); /* Make the parent process wait for child process terminate */
-	return (2);
+	wait(&status); /* Make the parent process wait for child process terminate */
+	return (WEXITSTATUS(status));
 }
