@@ -9,7 +9,7 @@ int _strlen(char *string)
 	int itrat = 0;
 
 	while (string[itrat] != '\0')
-		itrat++;				 /*count until reach to end of string*/
+		itrat++;				  /*count until reach to end of string*/
 
-	return (itrat);				 /*return number of digit*/
+	return (itrat);				  /*return number of digit*/
 }
