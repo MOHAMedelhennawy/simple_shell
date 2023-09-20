@@ -9,7 +9,7 @@
 int main(int __attribute__ ((unused)) argc, char *argv[])
 {
 	size_t len = 0, num = 1, ex = EXIT_SUCCESS, i = 0;
-	char *entireCommand, *buff[] = {NULL};
+	char *entireCommand = NULL, *buff[] = {NULL};
 	ssize_t readBytes;
 
 	while ('T')

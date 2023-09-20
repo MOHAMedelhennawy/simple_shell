@@ -5,7 +5,6 @@
  *
  * @bffer: The buffer that have the full command .
  * @programName: The name of program for error msg.
- * @n:Number of line for error msg.
  *
  * Description: This function excute the command inserted by user like
  * /bin/ls command or /bin/ls -l -h /tmp.

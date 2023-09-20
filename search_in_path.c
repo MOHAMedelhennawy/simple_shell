@@ -49,6 +49,7 @@ int check_node_for_execuve(d_node **head, char **buffer)
 			{
 				buffer[0] = str;
 				execve(buffer[0], buffer, NULL);
+				free(str);
 				exit(EXIT_SUCCESS);
 			}
 			wait(NULL), flag = 1;
@@ -62,8 +63,8 @@ int check_node_for_execuve(d_node **head, char **buffer)
 		else
 		{
 			d_node *temp = *head;
-			*head = (*head)->nextDir;
 			free(temp->directory);
+			*head = (*head)->nextDir;
 			free(temp), free(str);
 		}
 	}
