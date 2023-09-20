@@ -33,7 +33,7 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 
 		exitBuf = malloc(sizeof(char) * (_strlen(buff[0]) + 1));		/*store in heap*/
 		_strcpy(exitBuf, buff[0]);
-		exit_with_arguments(exitBuf, &buff[0], argv[0]);	/*to execute the commands*/
+		exit_with_arguments(exitBuf, &buff[0]);	/*to execute the commands*/
 
 		pathBuf = malloc(sizeof(char) * (_strlen(buff[0]) + 1));
 		_strcpy(pathBuf, buff[0]);

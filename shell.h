@@ -38,7 +38,7 @@ int check_node_for_execuve(d_node **head, char **buffer);
 void error_message(char *argv, char *buff, int num);
 void error_message_permission_denied(char *argv, char *buff, int num);
 void print_number(int n);
-int exit_with_arguments(char *bufff, char **oldBuf, char *programName);
+int exit_with_arguments(char *bufff, char **oldBuf);
 int _atoi(char *s);
 
 void _strcpy(char *firstString, char *secondString);
