@@ -24,9 +24,9 @@ int exit_with_arguments(char *bufff, char **oldBuf)
 		free(bufff); /* If the first word not exit */
 		return (1); /* Free the bufff and return */
 	}
-	if (word2 != NULL)
-		exit_status = _atoi(word2); /* convert the exit status from stirng to int */
-
+	exit_status = _atoi(word2); /* convert the exit status from stirng to int */
+	if (exit_status == -1 || exit_status == 0)
+		return (1);
 	free(bufff), free(*oldBuf);
 	exit(exit_status);
 	return (0);
@@ -50,7 +50,7 @@ int _atoi(char *stringNum)
 
 	do {
 		if (stringNum[i] == '-') /* Check for first char in string */
-			pos_neg *= -1; /* make the sign in negative */
+			return (-1); /* make the sign in negative */
 
 		else if (stringNum[i] >= '0' && stringNum[i] <= '9')
 			intNum = intNum * 10 + (stringNum[i] - '0'); /* Convert to integar */

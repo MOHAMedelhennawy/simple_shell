@@ -18,10 +18,10 @@ char **pathbuf)
 {
 	int itr = 0;
 
-	while (bffer[itr++] != NULL) /* splits the command to strings */
-		bffer[itr] = _strtok(NULL, " ");
 	if (fork() == 0) /* Check for child process */
 	{
+		while (bffer[itr++] != NULL) /* splits the command to strings */
+			bffer[itr] = _strtok(NULL, " ");
 		if (execve(bffer[0], bffer, environ) == -1)
 			error_message_permission_denied(programName, *bffer, n);
 
