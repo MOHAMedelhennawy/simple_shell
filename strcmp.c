@@ -26,5 +26,5 @@ int _strcmp(char *strin1, char *strin2)
 				return (-1);
 		}
 	}										
-	return (0);								/*else return 0*/
+	return (0);								 /*else return 0*/
 }
