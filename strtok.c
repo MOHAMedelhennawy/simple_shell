@@ -27,9 +27,9 @@ char *_strtok(char *strin, char *delim)
 	{
 		if (*each_char == *delim)
 		{
-			*each_char = '\0';		/*check char by char if is equl*/
-			each_char++;			/*to delim re-place it with '\0*/
-			return (word);			/*and return the word*/
+			*each_char = '\0';		 /*check char by char if is equl*/
+			each_char++;			 /*to delim re-place it with '\0*/
+			return (word);			 /*and return the word*/
 		}
 		each_char++;
 	}
