@@ -5,7 +5,7 @@
  * @argv: the passed arguments to program.
  * Return: return
  */
-int main(int __attribute__((unused)) argc, char *argv[])
+int main(int __attribute__ ((unused)) argc, char *argv[])
 {
 	size_t len = 0, num = 1, ex = EXIT_SUCCESS;
 	char *buff[] = {NULL}, *pathBuf, *exitBuf;
@@ -40,7 +40,7 @@ int main(int __attribute__((unused)) argc, char *argv[])
 
 		buff[0] = _strtok(buff[0], " ");
 		if (access(buff[0], F_OK) == 0 || !buff[0])
-			ex = execuve_command_with_slash(&buff[0], argv[0], &pathBuf);
+			ex = execuve_command_with_slash(&buff[0], argv[0], num, &pathBuf);
 		else if (_strcmp(buff[0], "env") && search_in_path(pathBuf) == 127)
 			error_message(argv[0], buff[0], num), ex = 127;
 		else
