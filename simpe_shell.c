@@ -37,7 +37,7 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 		st = exit_with_arguments(buff);	/*to execute the commands*/
 		if (st == -1)
 		{
-			exit_negative_error(argv[0], buff[1], num), ex = 2;
+			exit_negative_error(argv[0], buff[1], buff[0], num), ex = 2;
 			continue;
 		}
 		if (access(buff[0], F_OK) == 0)
