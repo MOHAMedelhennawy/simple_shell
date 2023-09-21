@@ -1,4 +1,6 @@
 #include "shell.h"
+#include <string.h>
+
 /**
  * main - the main function to execute our own shell.
  * @argc: number of arguments.
@@ -7,44 +9,43 @@
  */
 int main(int __attribute__ ((unused)) argc, char *argv[])
 {
-	size_t len = 0, num = 1, ex = EXIT_SUCCESS;
-	char *buff[] = {NULL}, *pathBuf, *exitBuf;
+	size_t len = 0, num = 1, ex = EXIT_SUCCESS, itr = 0;
+	char *buff[] = {NULL}, *allComm = NULL;
 	ssize_t readBytes;
 
 	while ('T')
 	{
+		itr = 0;
 		if (isatty(STDIN_FILENO) != 0)
 			write(STDOUT_FILENO, "#cisfun$ ", 9);
-		readBytes = getline(&buff[0], &len, stdin);
-			getline_error(readBytes, &buff[0], &ex);
+		readBytes = getline(&allComm, &len, stdin);
+			getline_error(readBytes, &ex, allComm); 
 
-		if (_strcmp(buff[0], "\n") == 0)
+		buff[0] = strtok(allComm, " ");
+		if (strcmp(buff[0], "\n") == 0)
 		{
 			num++;
 			continue;
 		}
+		allComm[readBytes - 1] = '\0';
+		while (buff[itr++] != NULL) /* splits the command to strings */
+			buff[itr] = strtok(NULL, " ");
 
-		buff[0][readBytes - 1] = '\0';
 		if (_strcmp(buff[0], "env") == 0)			/*if buff equal to env go to function*/
 			env_function();							/*and print all enviroment varuable*/
 
-		if (_strcmp(buff[0], "exit") == 0)			/*if buff equal to exit go to function*/
-			free(buff[0]), exit(ex);				/*and exit*/
+		if (_strcmp(buff[0], "exit") == 0 && !buff[1])			/*if buff equal to exit go to function*/
+			free(allComm), exit(ex);				/*and exit*/
+	
+		exit_with_arguments(buff);	/*to execute the commands*/
 
-		exitBuf = malloc(sizeof(char) * (_strlen(buff[0]) + 1));		/*store in heap*/
-		_strcpy(exitBuf, buff[0]);
-		exit_with_arguments(exitBuf, &buff[0]);	/*to execute the commands*/
 
-		pathBuf = malloc(sizeof(char) * (_strlen(buff[0]) + 1));
-		_strcpy(pathBuf, buff[0]);
-
-		buff[0] = _strtok(buff[0], " ");
-		if (access(buff[0], F_OK) == 0 || !buff[0])
-			ex = execuve_command_with_slash(&buff[0], argv[0], num, &pathBuf);
-		else if (_strcmp(buff[0], "env") && search_in_path(pathBuf) == 127)
+		if (access(buff[0], F_OK) == 0)
+			ex = execuve_command_with_slash(buff, argv[0], num);
+		else if (_strcmp(buff[0], "env") && search_in_path(buff) == 127)
 			error_message(argv[0], buff[0], num), ex = 127;
 		else
 			ex = 0;
-		free(pathBuf), num++;
+		num++;
 	}
 }

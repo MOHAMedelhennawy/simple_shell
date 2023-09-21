@@ -11,28 +11,24 @@
  *
  * Return: 1 in success and 0 in failer.
  */
-int exit_with_arguments(char *bufff, char **oldBuf)
+int exit_with_arguments(char **bufff)
 {
 	int exit_status;
-	char *word1, *word2;
 
-	word1 = _strtok(bufff, " "); /* Take the first word */
-	if (_strcmp(word1, "exit") == 0) /* Check if it is exit or not */
-		word2 = _strtok(NULL, " ");
-	else
+	if (_strcmp(bufff[0], "exit") != 0) /* Check if it is exit or not */
 	{
-		free(bufff); /* If the first word not exit */
 		return (1); /* Free the bufff and return */
 	}
-	exit_status = _atoi(word2); /* convert the exit status from stirng to int */
-	if (exit_status < 0)
+	exit_status = _atoi(bufff[1]); /* convert the exit status from stirng to int*/
+	if ((exit_status < 0 || exit_status == 0) && _strcmp(bufff[1], "0"))
 	{
 		return (0);
 	}
-	free(bufff), free(*oldBuf);
+	free(bufff[0]);
 	exit(exit_status);
 	return (0);
 }
+
 
 
 /**
