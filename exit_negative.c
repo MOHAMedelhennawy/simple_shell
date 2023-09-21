@@ -11,7 +11,7 @@
  * for wrong command insert by user.
  */
 void exit_negative_error(char *nameP, char *neg, char *exitName, int errNum)
-{   /* ./aout : 1 : sasklj : not found */
+{   /* ./aout : 1 : sasklj : Illegal number */
 	write(STDERR_FILENO, nameP, _strlen(nameP)); /*//  ./aout*/
 	write(STDERR_FILENO, ": ", 2);
 	print_number(errNum); /* Print line number */

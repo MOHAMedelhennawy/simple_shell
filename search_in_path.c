@@ -15,11 +15,11 @@ int search_in_path(char **buf)
 	if (check_node_for_execuve(&head, buf) == 0)
 	{
 		free_list(head);
-		return (127);
+		return (127); /* exit staus for error */
 	}
 
 	free_list(head);
-	return (0);
+	return (0); /* exit status if the command was excuted */
 }
 
 /**
@@ -55,12 +55,12 @@ int check_node_for_execuve(d_node **head, char **buffer)
 			break;
 		}
 		else if ((*head)->nextDir == NULL)
-		{
+		{ /* If the head reach to the end of list then break */
 			free((*head)->nextDir), flag = 0;
 			break;
 		}
 		else
-		{
+		{ /* Free each node when traverse until reach to the path */
 			temp = *head;
 			*head = (*head)->nextDir;
 			free(temp->directory);
@@ -68,5 +68,5 @@ int check_node_for_execuve(d_node **head, char **buffer)
 		}
 	}
 	free(str);
-	return (flag);
+	return (flag); /* flag is 0 or 1 */
 }
