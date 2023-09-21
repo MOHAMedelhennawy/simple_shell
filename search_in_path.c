@@ -11,6 +11,8 @@ int search_in_path(char **buf)
 {
 	d_node *head = build_linkedList();
 
+	if (head == NULL)
+		return (127);
 	/*check if path is exit*/
 	if (check_node_for_execuve(&head, buf) == 0)
 	{

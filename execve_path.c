@@ -18,8 +18,8 @@ int execuve_command_with_slash(char **bffer, char *programName, int n)
 
 	if (fork() == 0) /* Check for child process */
 	{
-		if (execve(bffer[0], bffer, NULL) == -1)
-			error_message_permission_denied(programName, *bffer, n);
+		if (execve(bffer[0], bffer, environ) == -1)
+			error_message(programName, *bffer, n);
 
 		free(bffer[0]);
 		exit(EXIT_SUCCESS); /* Exit with 0 status */

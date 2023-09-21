@@ -27,6 +27,8 @@ char *_getenv(char *name)
 		free(envCpy); /* If the variable not that we want */
 		i++;
 	}
+	if (environ[i] == NULL)
+		return (NULL);
 	newValueCpy = _strdup(value); /* Take a copy form the value */
 
 	free(envCpy);

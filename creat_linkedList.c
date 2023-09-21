@@ -15,7 +15,8 @@ d_node *build_linkedList(void)
 	d_node *head = NULL, *pttr = NULL, *newDir;
 
 	pathValue = _getenv("PATH"); /* Get the value of path (all directories) */
-
+	if (pathValue == NULL)
+		return (NULL);
 	dirPath = _strtok(pathValue, ":"); /* splits each directory */
 	while (dirPath != NULL)
 	{
