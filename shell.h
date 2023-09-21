@@ -38,6 +38,7 @@ void error_message(char *argv, char *buff, int num);
 void error_message_permission_denied(char *argv, char *buff, int num);
 void print_number(int n);
 int exit_with_arguments(char **bufff);
+void exit_negative_error(char *nameP, char *neg, int errNum);
 int _atoi(char *s);
 
 void _strcpy(char *firstString, char *secondString);

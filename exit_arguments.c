@@ -21,7 +21,7 @@ int exit_with_arguments(char **bufff)
 	exit_status = _atoi(bufff[1]); /* convert the exit status from stirng to int*/
 	if ((exit_status < 0 || exit_status == 0) && _strcmp(bufff[1], "0"))
 	{
-		return (0);
+		return (-1);
 	}
 	free(bufff[0]);
 	exit(exit_status);
