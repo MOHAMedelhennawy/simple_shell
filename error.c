@@ -4,8 +4,8 @@
  * getline_error - check error
  *
  * @bytes: Number of bytes read or -1 in errorl
- * @buff: The buffer read from.
  * @ex: Exit status for error.
+ * @comm: The full path of program.
  *
  * Description: This function check for getline error
  * and free the buff and exit if error exist.

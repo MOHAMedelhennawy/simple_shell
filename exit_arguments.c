@@ -4,7 +4,6 @@
  * exit_with_arguments - exit status.
  *
  * @bufff: The buffer that have the entire command.
- * @oldBuf: To free it before exit from process.
  *
  * Description: This function exit from the current
  * process with exit status argument.

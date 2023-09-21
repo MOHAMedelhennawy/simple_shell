@@ -40,11 +40,9 @@ int check_node_for_execuve(d_node **head, char **buffer)
 	{
 		str = malloc(sizeof(char) * (_strlen((*head)->directory) +
 			 _strlen(buffer[0]) + 2));
-
 		_strcpy(str, (*head)->directory);
 		_strcat(str, "/");					/*conact the command with each dir*/
 		_strcat(str, buffer[0]);			/*to check if is exist*/
-
 		if (access(str, F_OK) == 0)			/*if exist execuve it*/
 		{
 			if (fork() == 0)

@@ -19,7 +19,7 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 		if (isatty(STDIN_FILENO) != 0)
 			write(STDOUT_FILENO, "#cisfun$ ", 9);
 		readBytes = getline(&allComm, &len, stdin);
-			getline_error(readBytes, &ex, allComm); 
+			getline_error(readBytes, &ex, allComm);
 
 		buff[0] = strtok(allComm, " ");
 		if (strcmp(buff[0], "\n") == 0)
@@ -34,9 +34,9 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 		if (_strcmp(buff[0], "env") == 0)			/*if buff equal to env go to function*/
 			env_function();							/*and print all enviroment varuable*/
 
-		if (_strcmp(buff[0], "exit") == 0 && !buff[1])			/*if buff equal to exit go to function*/
-			free(allComm), exit(ex);				/*and exit*/
-	
+		if (_strcmp(buff[0], "exit") == 0 && !buff[1])
+			free(allComm), exit(ex); /*if buff equal to exit go to function and exit*/
+
 		exit_with_arguments(buff);	/*to execute the commands*/
 
 
