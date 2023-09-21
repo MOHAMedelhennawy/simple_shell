@@ -22,12 +22,14 @@ char *_getenv(char *name)
 		if (_strcmp(name, varName) == 0)
 		{
 			value = _strtok(NULL, "\0"); /* Got the value of given name */
+			if (!value)
+				return (NULL);
 			break;
 		}
 		free(envCpy); /* If the variable not that we want */
 		i++;
 	}
-	if (environ[i] == NULL)
+	if (!environ[i])
 		return (NULL);
 	newValueCpy = _strdup(value); /* Take a copy form the value */
 

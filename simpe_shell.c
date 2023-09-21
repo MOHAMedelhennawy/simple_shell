@@ -34,7 +34,7 @@ int main(int __attribute__ ((unused)) argc, char *argv[])
 			env_function();							/*and print all enviroment varuable*/
 		if (_strcmp(buff[0], "exit") == 0 && !buff[1])
 			free(allComm), exit(ex); /*if buff equal to exit go to function and exit*/
-		st = exit_with_arguments(buff);	/*to execute the commands*/
+		st = exit_with_arguments(buff, allComm);	/*to execute the commands*/
 		if (st == -1)
 		{
 			exit_negative_error(argv[0], buff[1], buff[0], num++), ex = 2;
