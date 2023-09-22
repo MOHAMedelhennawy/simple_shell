@@ -17,7 +17,7 @@ char *_getenv(char *name)
 
 	if (!name || !environ)
 		return (NULL);
-	while (environ[i] != NULL) /* Check for each environment variable */
+	while (environ[i] != NULL)  /* Check for each environment variable */
 	{
 		envCpy = _strdup(environ[i]); /* Take a copy from the variable */
 		varName = _strtok(envCpy, "="); /* Splits the name from value */
